@@ -31,7 +31,11 @@
 									}
 									Console.Write("Hány darab: ");
 									int menny = Convert.ToInt32(Console.ReadLine());
-									Console.Write("Van még elem(i/n): ");
+                                    if (menny==0)
+                                    {
+										throw new Exception("A megadott szám nem lehet 0.");
+                                    }
+                                    Console.Write("Van még elem(i/n): ");
 									char vane = Convert.ToChar(Console.ReadLine());
 									if (vane == 'n')
 									{
