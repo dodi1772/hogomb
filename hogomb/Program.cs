@@ -11,6 +11,7 @@
             {
 				try
 				{
+					Console.Clear();
 					Console.WriteLine("\t1. Elemek hozzáadása\n\t2. Tartalom megtekintése\n\t 3. Elem eltávolítása\n\t4. Terminado");
 					Console.Write("Add meg a választásod: ");
 					int valasz = Convert.ToInt32(Console.ReadLine());
@@ -29,9 +30,9 @@
 										throw new Exception("A bemenet nem lehet üres.");
 									}
 									Console.Write("Hány darab: ");
-									int menny = Convert.ToInt32(Console.ReadLine);
+									int menny = Convert.ToInt32(Console.ReadLine());
 									Console.Write("Van még elem(i/n): ");
-									char vane = Convert.ToChar(Console.ReadLine);
+									char vane = Convert.ToChar(Console.ReadLine());
 									if (vane == 'n')
 									{
 										futas = false;
@@ -55,9 +56,12 @@
 							break;
 						case 2:
 							Console.WriteLine("Lista tartalma:");
-							Console.WriteLine(string.Format("Elemek a hógömbben: ({0}).", string.Join(", ", elemek)));
-							Console.WriteLine(string.Format("Elemek mennyisége: ({0}).", string.Join(", ", mennyisegek)));
-							break;
+                            for (int i = 0; i < elemek.Count; i++)
+                            {
+                                Console.WriteLine($"{i+1}. elem: {elemek[i]} - {mennyisegek[i]} db");
+                            }
+							Console.ReadKey();
+                            break;
 						case 3:
 							try
 							{
@@ -72,6 +76,8 @@
                                     int elemIndex=elemek.IndexOf(bekerElem);
 									elemek.Remove(bekerElem);
 									mennyisegek.RemoveAt(elemIndex);
+                                    Console.WriteLine("Az elem eltávolítása megtörtént.");
+									Console.ReadKey();
                                 }
 								else
 								{
